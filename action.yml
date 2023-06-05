@@ -1,0 +1,21 @@
+name: 'Setup DReAM CLI'
+description: 'Install and connect DReAM CLI to DReAM Cloud POC'
+inputs:
+  token:
+    description: 'DReAM Cloud POC token'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Install nodeJS
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install DReAM CLI
+      run: npm install -g @novodream/cli-poc
+      shell: "bash"
+
+    - name: Login to DReAM Cloud POC
+      run: dream login --token ${{ inputs.token }}
+      shell: "bash"
