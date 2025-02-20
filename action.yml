@@ -10,7 +10,7 @@ runs:
     - name: Install nodeJS
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 20
 
     - name: Install DReAM CLI
       run: npm install -g @novodream/cli-poc
